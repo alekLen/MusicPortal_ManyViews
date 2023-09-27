@@ -1,0 +1,51 @@
+﻿@using Microsoft.AspNetCore.Http
+@model MusicPortal.BLL.DTO.UserDTO
+
+
+<div class="c20"> <h4>@Resources.Resource.Newusers</h4></div>
+    <div class="c3">
+    <table>
+        <tr class="c20"><th>@Resources.Resource.loginN</th><th style="width:60px">@Resources.Resource.age</th><th>@Resources.Resource.email</th><th style="width:80px">@Resources.Resource.Level</th><th></th></tr>
+        @foreach (var s in ViewBag.Users)
+      {
+        
+            @if (@s.Level == 0)
+            {
+                <form asp-action="EditUser"  asp-controller="Admin" method="post">
+                    <input asp-for="Id" type="hidden" value=@s.Id>
+               <tr>
+                <td>   <input asp-for="Name" class="form-control" value=@s.Name readonly="readonly" /></td>
+                <td>   <input asp-for="Age" class="form-control" value=@s.Age readonly="readonly"  /></td>
+                <td>   <input asp-for="email" class="form-control" value=@s.email readonly="readonly" /></td>
+                    <td> <input asp-for="Level" class="form-control" type="number" min="0" max="2" value=@s.Level  /></td>
+                    <td>&nbsp;&nbsp;&nbsp;<input type="submit" value="@Resources.Resource.Confirmregistration" /></td>
+               </tr>
+               </form>
+            }
+        }
+    </table></div>
+        <hr />
+        <hr />
+<div class="c20"> <h4>@Resources.Resource.Confirmdusers</h4></div>
+    <div class="c3">
+    <table>
+        <tr class="c20"><th>@Resources.Resource.loginN</th><th style="width:60px">@Resources.Resource.age</th><th>@Resources.Resource.email</th><th style="width:80px">@Resources.Resource.Level</th><th></th></tr>
+      @foreach (var s in ViewBag.Users)
+      {
+            @if (@s.Level > 0)
+            {
+                <form asp-action="EditUser" asp-controller="Admin" method="post">
+                    <input asp-for="Id" type="hidden" value=@s.Id>
+                <tr>
+                    <td>   <input asp-for="Name" class="form-control" value=@s.Name readonly="readonly" /></td>
+                    <td>   <input asp-for="Age" class="form-control" value=@s.Age readonly="readonly" /></td>
+                    <td>   <input asp-for="email" class="form-control" value=@s.email readonly="readonly" /></td>
+                    <td> <input asp-for="Level" class="form-control" type="number" min="1" max="2" value=@s.Level /></td>
+                    <td>&nbsp;&nbsp;&nbsp;<input type="submit" value="@Resources.Resource.Changelevel" /></td>
+                </tr>
+                </form>
+            }
+      }
+    </table>
+</div>
+

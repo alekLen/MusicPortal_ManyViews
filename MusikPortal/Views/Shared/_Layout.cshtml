@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MusicPortal</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/GestBook.styles.css" asp-append-version="true" />
+    <script src="~/js/site.js" ></script>
+    <script src="~/js/jquery-3.5.1.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <header >
+        <div style=" background-color:saddlebrown;" class="center">
+            <h1 class="c20">@Resources.Resource.MusicPortal </h1>
+            @using (Html.BeginForm("ChangeCulture", "Home"))
+            {
+                <div class="m2">
+                    <select name="lang" class="form-control i">
+                        <option value="ru">Русский</option>
+                        <option value="en">English</option>
+                        <option value="uk">Українська</option>
+                        <option value="de">Deutsch</option>
+                        <option value="fr">Français</option>
+                    </select>
+                    <input type="submit" name="submit" value="@Resources.Resource.ChooseLang" class="btn btn-default c20">
+                </div>
+            }
+        </div>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-1" >
+            <div class="container-fluid" style="background-color:brown">
+                <a class="navbar-brand card2" asp-area="" asp-controller="Home" asp-action="Index">@Resources.Resource.AllSongs</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                @using (Html.BeginForm("Find", "Home", FormMethod.Get))
+                {
+                    <div>
+                        <input type="text" name="str" />
+                        <input type="submit" value="@Resources.Resource.Find" />&nbsp;
+                    </div>
+                }
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    @using Microsoft.AspNetCore.Http
+                    @if (Context.Session.GetString("admin") != null)
+                    {                        
+                        <div class="navbar-collapse collapse d-sm-inline-flex c c21">
+                            @using (Html.BeginForm("Create", "Song", FormMethod.Get))
+                            {
+                                <div>
+                                    <input type="submit" value="@Resources.Resource.AddSong" />&nbsp;&nbsp;&nbsp;
+                                </div>
+                            }
+                        @using (Html.BeginForm("Styles", "Admin", FormMethod.Get))
+                        {
+                                <div >
+                                    <input type="submit" value="@Resources.Resource.Genres" />&nbsp;
+                             </div>
+                        }
+                        @using (Html.BeginForm("Artists", "Admin", FormMethod.Get))
+                        {
+                            <div >
+                                    <input type="submit" value="@Resources.Resource.Artists" />&nbsp;
+                            </div>
+                        }                     
+                        @using (Html.BeginForm("Users", "Admin", FormMethod.Get))
+                        {
+                            <div >
+                                    <input type="submit" value="@Resources.Resource.Users" />&nbsp;
+                            </div>
+                        }
+                        </div>
+                    }
+                    @if (Context.Session.GetString("login") != null)
+                    {
+                        @if (Context.Session.GetString("admin") == null && Context.Session.GetString("level") != null)
+                        {
+                            <div class="navbar-collapse collapse d-sm-inline-flex c c21">
+                            @using (Html.BeginForm("Create", "Song", FormMethod.Get))
+                            {
+                                <div>
+                                        <input type="submit" value="@Resources.Resource.AddSong" />&nbsp;
+                                </div>
+                            }
+                            </div>
+                        }
+                        @if (Context.Session.GetString("admin") == null && Context.Session.GetString("level") == null)
+                        {
+                            <div class="navbar-collapse collapse d-sm-inline-flex c c21 c20"> @Resources.Resource.waiting </div>
+                        }
+
+                        @using (Html.BeginForm("Logout", "Login", FormMethod.Get))
+                        {
+                              <div class="navbar-collapse collapse d-sm-inline-flex c c1">
+                               
+                            <span  class="c20">
+                                    @Resources.Resource.Welcome, @Context.Session.GetString("login")&nbsp;&nbsp;
+                            </span>
+                            <div>
+                                    <input type="submit" value="@Resources.Resource.LogOut" />
+                                </div>
+                            </div>
+                        }
+                    }                   
+                    else{ 
+                    <ul class="navbar-nav flex-grow-1 c c1">
+                        <li class="nav-item">
+                                <a class="nav-link text-dark card2" asp-area="" asp-controller="Login" asp-action="Login">@Resources.Resource.Login</a>
+                        </li>
+                        <li class="nav-item">
+                                <a class="nav-link text-dark card2" asp-area="" asp-controller="Login" asp-action="Registration">@Resources.Resource.Registration</a>
+                        </li>
+                    </ul>
+                    }
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container c20">
+            &copy; 2023 - @Resources.Resource.MusicPortal - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

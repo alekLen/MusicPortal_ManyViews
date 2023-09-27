@@ -1,0 +1,41 @@
+﻿@model MusicPortal.BLL.DTO.SongDTO
+
+<h1 class=" b1 b3 center c20">@Resources.Resource.Confirmdeletion</h1>
+
+<div class="center">
+    <div class="card c77">
+        <form formaction="Delete" asp-controller="Admin" method="post" >
+            <input asp-for="Id" type="hidden" />
+            <div class="form-group">
+                <span>@Resources.Resource.Songname  </span><br />
+                <input asp-for="Name" class="form-control" readonly />
+            </div>
+            <span>@Resources.Resource.Album </span><br />
+            <input asp-for="@Resources.Resource.Album" class="form-control" readonly />
+            <div class="form-group">
+                <label>@Resources.Resource.Style</label>
+                <input asp-for="style" class="form-control" readonly />
+            </div>
+            <div class="form-group">
+                <label>@Resources.Resource.Artist</label>
+                <input asp-for="artist" class="form-control" readonly/>
+            </div>
+            <div class="form-group">
+                <span>@Resources.Resource.Year</span><br />
+                <input asp-for="Year" class="form-control" readonly/>
+            </div>            
+            <span>@Resources.Resource.File</span><br />
+            <input asp-for="file" class="form-control"  readonly="readonly" />
+                <br />
+                <div class="c3">
+                <div class="form-group">
+                    <input type="submit" value="@Resources.Resource.Delete" class="btn btn-primary c2" />
+                </div>&nbsp;&nbsp;&nbsp;             
+            </div>
+        </form><br />
+        <div class="card c18 c19 text-center">
+            <a asp-controller="Home" asp-action="Index" class="br c20">@Resources.Resource.Cancel</a>
+        </div>
+    </div>
+    
+</div>

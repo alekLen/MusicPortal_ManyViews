@@ -1,0 +1,199 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+  background-color:saddlebrown;
+}
+.card1 {
+    display: flex;
+    align-items: center;
+    border-radius: 12px;
+    box-shadow: -5px -5px 20px #FFF, 5px 5px 20px #BABECC;
+    font-size: 50px;
+    font-weight: bold;
+    font-family: Comfortaa;
+    background-color: #EBECF0;
+    padding: 3px;
+    padding-left: 15px;
+    color: midnightblue;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    width: 700px;
+}
+
+.card {
+    margin: 0;
+    padding: 15px;
+    overflow-wrap: break-word;
+    color: #565860;
+    resize: none;
+    line-height: 30px;
+    outline: none;
+    border: none;
+    width: 600px;
+    justify-items: flex-end;
+    border-radius: 3px;
+    background-color: bisque;
+    box-shadow: inset 2px 2px 5px #BABECC, inset -2px -2px 4px #FFF;
+    transition: all 0.1s ease-in-out;
+    font-weight: bold;
+    font-family: t;
+}
+._c {
+  
+    width: 570px;
+    background-color: white;
+}
+.card2 {
+    margin: 10px;
+    padding: 5px;
+    color: #565860;
+    resize: none;
+    line-height: 10px;
+    outline: none;
+    border: none;
+    justify-items: flex-end;
+    border-radius: 3px;
+    background-color: #EBECF0;
+    box-shadow: inset 2px 2px 5px #BABECC, inset -2px -2px 4px #FFF;
+    transition: all 0.1s ease-in-out;
+    font-weight: bold;
+    font-family:t;
+}
+
+.c {
+    display: flex;
+    justify-content: flex-end;
+    width: 700px;
+}
+
+.c1 {
+    width: 500px;
+}
+.c2{
+    padding-right:100px;
+}
+.c3{
+    display:flex;
+}
+.c4{
+    align-self:center;
+}
+.c5{
+    width:400px;
+}
+
+.c6{
+    font-size:0.8em;
+}
+.c7 {
+    width: 350px;
+}
+._c7 {
+    width: 320px;
+    background-color: white;
+    padding:5px;
+}
+.c77 {
+    width: 450px;
+}
+.c8 {
+    width: 10px;
+}
+.c9{
+    margin-left:50px;
+}
+.c10{
+    font-weight:normal;
+}
+.c11{
+    height:200px;
+}
+.c12 {
+    height: 170px;
+}
+.c13 {
+    height: 7px;
+}
+.c14 {
+    height: 50px;
+}
+.c15{
+    padding-top:3px;
+}
+.c17 {
+    width: 420px;
+}
+.c18 {
+    width: 120px;
+}
+.c19{
+    padding:2px;
+    margin-bottom:5px;
+}
+.c20{
+    color:white;
+}
+.c21 {
+    width: 400px;
+}
+.c22{
+    width:250px
+}
+.c23 {
+    width: 220px
+}
+.im {
+    max-width: 150px;
+    height: auto;
+}
+.b{
+    justify-content:space-between;
+}
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   width: 90vw;
+}
+.br{
+    background-color:brown;
+}
+header {
+    position: fixed; /* Фиксированная позиция */
+    top: 0; /* Закрепление наверху */
+    left: 0; /* Закрепление слева */
+    width: 100%; /* Ширина равна 100% экрана */
+    z-index: 1000; /* Высокий уровень z-index, чтобы заголовок был поверх всего остального контента */
+}
+
+main {
+    padding-top: 130px; /* Добавляем отступ сверху для контента, чтобы он не находился под заголовком */
+}
+.m1 {
+    width: 150px;
+}
+
+.m2 {
+    margin-left: 400px;
+}
+
+.i {
+    display: inline;
+}

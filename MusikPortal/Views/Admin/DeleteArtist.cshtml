@@ -1,0 +1,24 @@
+﻿@model MusicPortal.BLL.DTO.ArtistDTO
+
+<h4 class=" b1 b3 c20 center">@Resources.Resource.Confirmdeletion</h4>
+<div class="center">
+    <div class=" card c22">
+        <form asp-controller="Admin" method="post" enctype="multipart/form-data">
+            <div>
+                <img src=@Url.Content(@Model.photo) class="im"></img>
+            </div>          
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                <span>@Resources.Resource.Artist</span><br />
+                    <input asp-for="Name" class="form-control card c23" readonly />
+                </div>               
+                <br />
+                <div class="form-group">
+                <input type="submit" formaction="ConfirmDeleteArtist" value="@Resources.Resource.Delete" class="btn btn-primary c2 c23" />
+                </div><br />
+                <div class="form-group">
+                <input type="submit" formaction="CancelDeleteArtist" value="@Resources.Resource.Cancel" class="btn btn-primary c2 c23" />
+                </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,91 @@
+﻿@using Microsoft.AspNetCore.Http
+<div>
+ @foreach (var s in ViewBag.Songs)
+ {   <div class="c3">
+       <div>
+      
+             <div class="card">
+             <h4>@s.Name</h4>
+           
+      <div class="text-center">
+                        @{
+                            string[] st = @s.file.Split('.');
+                        }
+                        @if (@st[st.Count() - 1] == "mp4")
+                        {
+                            <video controls autoplay="autoplay" loop="loop" muted="muted" width="500" height="300">
+            <source src=@s.file type="video/mp4">
+           </video>           
+           }
+                       
+                            @if (@st[st.Count()-1] == "mp3")
+                        {
+                            <div>
+                                <img src=@Url.Content(s.artist.photo) style="width:auto;height:270px"></img>
+                            </div>
+                            <video controls autoplay="autoplay" loop="loop" muted="muted" width="500" height="30">
+                                <source src=@s.file type="video/mp4">
+                            </video>
+                        }
+         </div>
+
+            
+            </div>
+        </div>
+       <div class="c8"></div>
+       <dv>
+        <div class="card c5 c11">
+            <div class="c3 b">
+                <div>
+             <h1 >@s.artist</h1>     
+            <div >@s.Name</div>
+                            <div><span class="c6 c10">@Resources.Resource.Year:</span>&nbsp;@s.Year </div>
+                            <div><span class="c6 c10">@Resources.Resource.Album:</span>&nbsp;@s.Album</div>
+                            <div><span class="c6 c10">@Resources.Resource.Style:</span>&nbsp;@s.style</div>
+                           
+                    </div>
+                <div>
+                            <img src=@Url.Content(s.artistPhoto) class="im"></img>
+                </div>    
+             </div>
+           
+        </div>
+           <div class="c13"></div>
+            @if (@s.text != null)
+            {
+                <div class="card c5 c12 c15">
+                        <div class="c6 c10">@Resources.Resource.Text</div>
+                    <textarea readonly rows="5" style="resize:none">@s.text</textarea>
+                </div>
+            }
+            @if (@s.text == null)
+            {
+
+                <div class="card c5 c14">waiting for text</div>
+            }
+            
+        </dv>
+        <div class="c9">
+                <br />
+                <br />
+                <div class="card c18 c19 text-center">
+                <a href="@s.file" download>@Resources.Resource.download</a>
+                </div>
+        @if (Context.Session.GetString("admin") != null)
+        {
+                <br />
+                <br />
+                    <div class="card c18 c19 text-center">
+                 <a asp-controller="Admin" asp-action="EditSong" asp-route-id="@s.Id">@Resources.Resource.Edit</a>
+             </div>
+
+                    <div class="card c18 c19 text-center">
+                  <a asp-controller="Admin" asp-action="DeleteSong" asp-route-id="@s.Id">@Resources.Resource.Delete</a>
+             </div>
+        }
+        </div>
+    </div>
+    <br />
+   
+ }
+</div>

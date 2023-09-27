@@ -1,0 +1,59 @@
+﻿@model MusikPortal.Models.RegisterModel
+@using Microsoft.AspNetCore.Http
+<div class="center">
+<form id="registrationForm" action="Registration" method="post">
+    @Html.AntiForgeryToken()
+    <div class="card c22">
+        @Html.ValidationSummary(true, "")
+        <div>
+            @Html.DisplayNameFor(model => model.Login)
+            <div>
+                @Html.EditorFor(model => model.Login, new { id = "login" })
+                    <span id="log" style="color:red; display:none">@Resources.Resource.loginused</span>
+                <span asp-validation-for="Login"  class="text-danger"></span>
+            </div>
+        </div>
+
+        <div>
+            @Html.DisplayNameFor(model => model.Password)
+            <div>
+                @Html.PasswordFor(model => model.Password, new { id = "Password" })
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div>
+            @Html.DisplayNameFor(model => model.PasswordConfirm)
+
+            <div>
+                @Html.PasswordFor(model => model.PasswordConfirm)
+                <span asp-validation-for="PasswordConfirm" class="text-danger"></span>
+            </div>
+        </div>
+        <div>
+            @Html.DisplayNameFor(model => model.email)
+            <div>
+                @Html.EditorFor(model => model.email, new { id = "emailInput" })
+                <span asp-validation-for="email" id="emailStatus" class="text-danger"></span>
+            </div>
+        </div>  <div>
+            @Html.DisplayNameFor(model => model.age)
+            <div>
+                @Html.EditorFor(model => model.age)
+                <span asp-validation-for="age" class="text-danger"></span>
+            </div>
+        </div>
+        <div><br />
+            <div>
+                <button type="submit">Confirm</button>
+            </div>
+        </div>
+    </div>
+</form>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

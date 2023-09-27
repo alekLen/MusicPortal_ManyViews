@@ -1,0 +1,70 @@
+﻿@model MusicPortal.BLL.DTO.ArtistDTO
+
+<h4 class=" b1 b3 c20 center">@Resources.Resource.EditArt</h4>
+<div class="center">
+<div class=" card c7">
+    <form asp-controller="Admin" method="post" enctype="multipart/form-data">
+       
+        <div class="form-group ">
+            <input type="hidden" asp-for="Id" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div>
+                    <img src=@Url.Content(@Model.photo) class="im" id="image"></img>
+                </div>
+            <div class="form-group">
+                    <span>@Resources.Resource.enterArt</span><br />
+                <input asp-for="Name" class="form-control card _c7" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+                <span>@Resources.Resource.Photo</span><br />
+                <input asp-for="photo" class="form-control card _c7" id="fileNameField" readonly="readonly" />
+                <input type="file" name="p" accept=".jpg, .jpeg" id="fileInput" onchange="previewImage()" /><br /><br />
+                <div class="form-group">                   
+                    <input type="submit" formaction="EditArtist" value="@Resources.Resource.EditArt" class="btn btn-primary c2 " />
+                </div><br />
+                <div class="form-group">
+                    <input type="submit" formaction="CancelDeleteArtist" value="@Resources.Resource.Cancel" class="btn btn-primary c2" />
+                </div>
+                </div>
+    </form>
+</div>
+</div>
+<script>
+    document.getElementById('fileInput').addEventListener('change', function () {
+        var fileInput = document.getElementById('fileInput');
+        var fileNameField = document.getElementById('fileNameField');     
+        if (fileInput.files.length > 0) {
+            fileNameField.value = fileInput.files[0].name;          
+        } else {
+            fileNameField.value = '';
+        }
+       
+    });
+    function previewImage() {
+        var fileInput = document.getElementById('fileInput');
+        var previewImage = document.getElementById('image');
+
+        // Получаем выбранный файл
+        var file = fileInput.files[0];
+
+        if (file) {
+            // Создаем объект FileReader для чтения файла
+            var reader = new FileReader();
+
+            // Событие onload вызывается, когда файл будет загружен
+            reader.onload = function (e) {
+                // Устанавливаем src элемента <img> равным содержанию файла
+                previewImage.src = e.target.result;
+            };
+
+            // Читаем выбранный файл как Data URL
+            reader.readAsDataURL(file);
+        }
+    }
+</script>
+
+
+
+
+
+
