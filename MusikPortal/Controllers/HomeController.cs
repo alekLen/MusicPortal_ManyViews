@@ -5,6 +5,7 @@ using MusicPortal.BLL.Interfaces;
 using System.Diagnostics;
 using MusicPortal.Filters;
 using MusicPortal.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace MusikPortal.Controllers
 {
@@ -16,7 +17,7 @@ namespace MusikPortal.Controllers
         {
             songService = song;          
         }
-        public async Task<IActionResult> Index(SortState sortOrder= SortState.YearDesc)
+        public async Task<IActionResult> Index(SortState sortOrder= SortState.YearDesc, int page = 1)
         {
             HttpContext.Session.SetString("path", Request.Path);
             IEnumerable<SongDTO> s = await songService.GetAllSongs();
@@ -33,8 +34,13 @@ namespace MusikPortal.Controllers
                 SortState.YearAsc => s.OrderBy(m => m.Year),
                 _ =>  s.OrderByDescending(m => m.Year),
             };
-            ViewBag.Songs = s;
-            return View();
+            int pageSize = 3;   // количество элементов на странице           
+            var count = s.Count();
+            var items = s.Skip((page - 1) * pageSize).Take(pageSize);
+
+            PageViewModel pageViewModel = new PageViewModel(count, page, pageSize);
+            ViewBag.Songs = items;
+            return View(pageViewModel);
         }
         public async Task<IActionResult> Find(string str)
         {

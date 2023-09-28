@@ -150,6 +150,9 @@
   <data name="ArtSort" xml:space="preserve">
     <value>sängern</value>
   </data>
+  <data name="Back" xml:space="preserve">
+    <value>Zurück</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Stornieren</value>
   </data>
@@ -218,6 +221,9 @@
   </data>
   <data name="Find" xml:space="preserve">
     <value>Finden</value>
+  </data>
+  <data name="Forward" xml:space="preserve">
+    <value>Nach vorne</value>
   </data>
   <data name="Genres" xml:space="preserve">
     <value>Genres</value>

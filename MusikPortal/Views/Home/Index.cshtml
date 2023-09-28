@@ -1,4 +1,7 @@
-﻿@using Microsoft.AspNetCore.Http
+﻿@model MusikPortal.Models.PageViewModel
+
+
+@using Microsoft.AspNetCore.Http
 <div>
  @foreach (var s in ViewBag.Songs)
  {   <div class="c3">
@@ -21,7 +24,7 @@
                             @if (@st[st.Count()-1] == "mp3")
                         {
                             <div>
-                                <img src=@Url.Content(s.artist.photo) style="width:auto;height:270px"></img>
+                                <img src=@Url.Content(s.artist.photo) style="width:auto;height:270px"/>
                             </div>
                             <video controls autoplay="autoplay" loop="loop" muted="muted" width="500" height="30">
                                 <source src=@s.file type="video/mp4">
@@ -89,3 +92,19 @@
    
  }
 </div>
+<p>
+    @if (Model.HasPreviousPage)
+    {
+        <a asp-action="Index"
+           asp-route-page="@(Model.PageNumber - 1)" class="glyphicon glyphicon-chevron-left nav-link text-dark card2">
+            @Resources.Resource.Back
+        </a>
+    }
+    @if (Model.HasNextPage)
+    {
+        <a asp-action="Index"
+           asp-route-page="@(Model.PageNumber + 1)" class="glyphicon glyphicon-chevron-right nav-link text-dark card2">
+            @Resources.Resource.Forward
+        </a>
+    }
+</p>

@@ -150,6 +150,9 @@
   <data name="ArtSort" xml:space="preserve">
     <value>исполителям</value>
   </data>
+  <data name="Back" xml:space="preserve">
+    <value>Назад</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Отмена</value>
   </data>
@@ -218,6 +221,9 @@
   </data>
   <data name="Find" xml:space="preserve">
     <value>Найти</value>
+  </data>
+  <data name="Forward" xml:space="preserve">
+    <value>Вперед</value>
   </data>
   <data name="Genres" xml:space="preserve">
     <value>Жанры</value>
