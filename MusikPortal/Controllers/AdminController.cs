@@ -31,18 +31,21 @@ namespace MusikPortal.Controllers
         }
         public async Task<IActionResult> Styles()
         {
+            HttpContext.Session.SetString("path", Request.Path);
             IEnumerable<StyleDTO> s = await styleService.GetAllStyles();
             ViewData["StyleId"] = new SelectList(s, "Id", "Name");
             return View("Styles");
         }
         public async Task<IActionResult> Artists()
         {
+            HttpContext.Session.SetString("path", Request.Path);
             IEnumerable<ArtistDTO> a = await artistService.GetAllArtists();
             ViewData["ArtistId"] = new SelectList(a, "Id", "Name");
             return View("Artists");
         }
         public async Task<IActionResult> EditArtist(int id)
         {
+            HttpContext.Session.SetString("path", Request.Path);
             ArtistDTO a = await artistService.GetArtist(id);
             return View("EditArtist",a);
         }       
@@ -50,6 +53,7 @@ namespace MusikPortal.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateStyle(StyleDTO s)
         {
+            HttpContext.Session.SetString("path", Request.Path);
             StyleDTO style = new StyleDTO();
             style.Name = s.Name;
             if (ModelState.IsValid)
@@ -73,6 +77,7 @@ namespace MusikPortal.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateArtist(ArtistDTO s, IFormFile p)
         {
+            HttpContext.Session.SetString("path", Request.Path);
             if (p != null)
             {
                 string str = p.FileName.Replace(" ", "_");
@@ -106,8 +111,9 @@ namespace MusikPortal.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteStyle(StyleDTO s)
-        {                  
-                try
+        {
+            HttpContext.Session.SetString("path", Request.Path);
+            try
                 {
                     await styleService.DeleteStyle(s.Id);
                     return RedirectToAction("Index", "Home");
@@ -122,6 +128,7 @@ namespace MusikPortal.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteArtist(ArtistDTO s)
         {
+            HttpContext.Session.SetString("path", Request.Path);
             try
             {
                 ArtistDTO a = await artistService.GetArtist(s.Id);
@@ -137,6 +144,7 @@ namespace MusikPortal.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ConfirmDeleteArtist(ArtistDTO s)
         {
+            HttpContext.Session.SetString("path", Request.Path);
             try
             {
                 await artistService.DeleteArtist(s.Id);
@@ -152,6 +160,7 @@ namespace MusikPortal.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CancelDeleteArtist()
         {
+            HttpContext.Session.SetString("path", Request.Path);
             await putArtists();
             return View("Artists");
         }
@@ -159,7 +168,8 @@ namespace MusikPortal.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditStyle(StyleDTO s)
         {
-                if (ModelState.IsValid)
+            HttpContext.Session.SetString("path", Request.Path);
+            if (ModelState.IsValid)
                 {
                     try
                     {
@@ -180,6 +190,7 @@ namespace MusikPortal.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditArtist(ArtistDTO s, IFormFile? p)
         {
+            HttpContext.Session.SetString("path", Request.Path);
             if (ModelState.IsValid)
             {
                 try
@@ -213,28 +224,33 @@ namespace MusikPortal.Controllers
         }
         public async Task putStyles()
         {
+            HttpContext.Session.SetString("path", Request.Path);
             IEnumerable<StyleDTO> s = await styleService.GetAllStyles();
             ViewData["StyleId"] = new SelectList(s, "Id", "Name");          
         }
         public async Task putArtists()
         {
+            HttpContext.Session.SetString("path", Request.Path);
             IEnumerable<ArtistDTO> a = await artistService.GetAllArtists();
             ViewData["ArtistId"] = new SelectList(a, "Id", "Name");
         }
         public async Task putUsers()
         {
+            HttpContext.Session.SetString("path", Request.Path);
             IEnumerable<UserDTO> s = await userService.GetUsers(HttpContext.Session.GetString("login"));
             ViewBag.Users = s;
         }
         public async Task<IActionResult> Users()
         {
+            HttpContext.Session.SetString("path", Request.Path);
             IEnumerable<UserDTO> s = await userService.GetUsers(HttpContext.Session.GetString("login"));
             ViewBag.Users = s;
             return View();
         }
         public async Task<IActionResult> EditUser(UserDTO u)
-        {            
-                try
+        {
+            HttpContext.Session.SetString("path", Request.Path);
+            try
                 {
                 IEnumerable<UserDTO> s = await userService.GetUsers(HttpContext.Session.GetString("login"));
                 ViewBag.Users = s;
@@ -256,6 +272,7 @@ namespace MusikPortal.Controllers
         }
         public async Task<IActionResult> DeleteSong(int id)
         {
+            HttpContext.Session.SetString("path", Request.Path);
             if (id == null)
             {
                 return NotFound();
@@ -272,7 +289,7 @@ namespace MusikPortal.Controllers
         [HttpPost, ActionName("DeleteSong")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteSongConfirmd(int id)
-        {
+        {            
             try
             {
                 await songService.DeleteSong(id);
@@ -287,12 +304,13 @@ namespace MusikPortal.Controllers
        [HttpPost, ActionName("CancelDeleteSong")]
         [ValidateAntiForgeryToken]
         public IActionResult CancelDeleteSong()
-        {          
-                return RedirectToAction("Index", "Home");
+        {           
+            return RedirectToAction("Index", "Home");
         }
         [HttpGet]
         public async Task<IActionResult> EditSong(int id)
         {
+            HttpContext.Session.SetString("path", Request.Path);
             try
             {
                 SongDTO s=await songService.GetSong(id);              

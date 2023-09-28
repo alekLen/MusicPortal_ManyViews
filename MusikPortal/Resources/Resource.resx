@@ -147,6 +147,9 @@
   <data name="Artists" xml:space="preserve">
     <value>Исполнители</value>
   </data>
+  <data name="ArtSort" xml:space="preserve">
+    <value>исполителям</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Отмена</value>
   </data>
@@ -276,8 +279,14 @@
   <data name="Songname" xml:space="preserve">
     <value>Название песни</value>
   </data>
+  <data name="Sort" xml:space="preserve">
+    <value>Сортировать пo:</value>
+  </data>
   <data name="Style" xml:space="preserve">
     <value>Жанр</value>
+  </data>
+  <data name="StyleSort" xml:space="preserve">
+    <value>жанрам</value>
   </data>
   <data name="Text" xml:space="preserve">
     <value>Текст</value>
@@ -305,5 +314,8 @@
   </data>
   <data name="Year" xml:space="preserve">
     <value>Год</value>
+  </data>
+  <data name="YearSort" xml:space="preserve">
+    <value>году выхода</value>
   </data>
 </root>

@@ -28,6 +28,21 @@
                     <input type="submit" name="submit" value="@Resources.Resource.ChooseLang" class="btn btn-default c20">
                 </div>
             }
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="m3" >
+                <span class="c20 ">@Resources.Resource.Sort</span><br />
+                <div class="c3" >
+                    <a asp-controller="Home" asp-action="Index" asp-route-sortOrder="@ViewBag.ArtistSort" class="nav-link text-dark card2">
+                @Resources.Resource.ArtSort
+            </a>
+                    <a asp-controller="Home" asp-action="Index" asp-route-sortOrder="@ViewBag.StyleSort" class="nav-link text-dark card2">
+                @Resources.Resource.StyleSort
+            </a>
+                    <a asp-controller="Home" asp-action="Index" asp-route-sortOrder="@ViewBag.YearSort" class="nav-link text-dark card2">
+                    @Resources.Resource.YearSort
+                    </a>
+                </div>
+            </div>
         </div>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-1" >
             <div class="container-fluid" style="background-color:brown">
@@ -118,7 +133,9 @@
                 </div>
             </div>
         </nav>
+       
     </header>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()

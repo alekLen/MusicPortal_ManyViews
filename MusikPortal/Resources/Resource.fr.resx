@@ -147,6 +147,9 @@
   <data name="Artists" xml:space="preserve">
     <value>Сhanteurs</value>
   </data>
+  <data name="ArtSort" xml:space="preserve">
+    <value>chanteurs</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Annuler</value>
   </data>
@@ -276,8 +279,14 @@
   <data name="Songname" xml:space="preserve">
     <value>Titre de la chanson</value>
   </data>
+  <data name="Sort" xml:space="preserve">
+    <value>Trier par:</value>
+  </data>
   <data name="Style" xml:space="preserve">
     <value>Genre</value>
+  </data>
+  <data name="StyleSort" xml:space="preserve">
+    <value>genre</value>
   </data>
   <data name="Text" xml:space="preserve">
     <value>Texte</value>
@@ -305,5 +314,8 @@
   </data>
   <data name="Year" xml:space="preserve">
     <value>Année</value>
+  </data>
+  <data name="YearSort" xml:space="preserve">
+    <value>année de sortie</value>
   </data>
 </root>

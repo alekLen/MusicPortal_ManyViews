@@ -147,6 +147,9 @@
   <data name="Artists" xml:space="preserve">
     <value>Artists</value>
   </data>
+  <data name="ArtSort" xml:space="preserve">
+    <value>singers</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Cancel</value>
   </data>
@@ -173,6 +176,9 @@
   </data>
   <data name="DeleteArt" xml:space="preserve">
     <value>Delete the Artist</value>
+  </data>
+  <data name="download" xml:space="preserve">
+    <value>Download</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>Edit</value>
@@ -273,8 +279,14 @@
   <data name="Songname" xml:space="preserve">
     <value>Song's name</value>
   </data>
+  <data name="Sort" xml:space="preserve">
+    <value>Sort by:</value>
+  </data>
   <data name="Style" xml:space="preserve">
     <value>Genre</value>
+  </data>
+  <data name="StyleSort" xml:space="preserve">
+    <value>genre</value>
   </data>
   <data name="Text" xml:space="preserve">
     <value>Text</value>
@@ -302,5 +314,8 @@
   </data>
   <data name="Year" xml:space="preserve">
     <value>Year</value>
+  </data>
+  <data name="YearSort" xml:space="preserve">
+    <value>year</value>
   </data>
 </root>

@@ -27,13 +27,15 @@ namespace MusikPortal.Controllers
         }
         public async Task<IActionResult> Create()
         {
+            HttpContext.Session.SetString("path", Request.Path);
             await putStylesArtists();
             return View("AddSong");
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create( AddSong song, IFormFile uploadedFile)
-        {            
+        {
+            HttpContext.Session.SetString("path", Request.Path);
             if (uploadedFile == null)
                 ModelState.AddModelError("", "put the file");
             DateTime today = DateTime.Today;
@@ -93,7 +95,7 @@ namespace MusikPortal.Controllers
             return View("AddSong", song);
         }
         public async Task putStylesArtists()
-        {
+        {           
             IEnumerable<StyleDTO> s = await styleService.GetAllStyles();
             IEnumerable<ArtistDTO> a = await artistService.GetAllArtists();
             ViewData["StyleId"] = new SelectList(s, "Id", "Name");

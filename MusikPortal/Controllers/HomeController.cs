@@ -4,6 +4,7 @@ using MusicPortal.BLL.DTO;
 using MusicPortal.BLL.Interfaces;
 using System.Diagnostics;
 using MusicPortal.Filters;
+using MusicPortal.Models;
 
 namespace MusikPortal.Controllers
 {
@@ -15,14 +16,29 @@ namespace MusikPortal.Controllers
         {
             songService = song;          
         }
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(SortState sortOrder= SortState.YearDesc)
         {
+            HttpContext.Session.SetString("path", Request.Path);
             IEnumerable<SongDTO> s = await songService.GetAllSongs();
+            ViewData["ArtistSort"] = sortOrder == SortState.ArtAsc ? SortState.ArtDesc : SortState.ArtAsc;
+            ViewData["StyleSort"] = sortOrder == SortState.StyleAsc ? SortState.StyleDesc : SortState.StyleAsc;
+            ViewData["YearSort"] = sortOrder == SortState.YearAsc ? SortState.YearDesc : SortState.YearAsc;          
+
+           s = sortOrder switch
+            {
+                SortState.ArtDesc => s.OrderByDescending(m => m.artist),
+                SortState.ArtAsc => s.OrderBy(m => m.artist),
+                SortState.StyleDesc => s.OrderByDescending(m => m.style),
+                SortState.StyleAsc => s.OrderBy(m => m.style),             
+                SortState.YearAsc => s.OrderBy(m => m.Year),
+                _ =>  s.OrderByDescending(m => m.Year),
+            };
             ViewBag.Songs = s;
             return View();
         }
         public async Task<IActionResult> Find(string str)
         {
+            HttpContext.Session.SetString("path", Request.Path);
             IEnumerable<SongDTO> s = await songService.FindSongs(str);
             ViewBag.Songs = s;
             return View("Index");

@@ -19,6 +19,7 @@ namespace MusikPortal.Controllers
         }
         public IActionResult Registration()
         {
+            HttpContext.Session.SetString("path", Request.Path);
             return View();
         }
 
@@ -26,6 +27,7 @@ namespace MusikPortal.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Registration(RegisterModel user)
         {
+            HttpContext.Session.SetString("path", Request.Path);
             try
             {
                 if (Convert.ToInt32(user.age) < 0 || Convert.ToInt32(user.age) > 99)
@@ -60,13 +62,15 @@ namespace MusikPortal.Controllers
         }
         public IActionResult Login()
         {
+            HttpContext.Session.SetString("path", Request.Path);
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginModel user)
         {
-           
+            HttpContext.Session.SetString("path", Request.Path);
+
             if (ModelState.IsValid)
             {
                 var u = await userService.GetUser(user.Login);

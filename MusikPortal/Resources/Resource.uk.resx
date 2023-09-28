@@ -147,6 +147,9 @@
   <data name="Artists" xml:space="preserve">
     <value>Виконавці</value>
   </data>
+  <data name="ArtSort" xml:space="preserve">
+    <value>співаками</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Відміна</value>
   </data>
@@ -276,8 +279,14 @@
   <data name="Songname" xml:space="preserve">
     <value>Назва пісні</value>
   </data>
+  <data name="Sort" xml:space="preserve">
+    <value>Сортувати за:</value>
+  </data>
   <data name="Style" xml:space="preserve">
     <value>Жанр</value>
+  </data>
+  <data name="StyleSort" xml:space="preserve">
+    <value>жанрами</value>
   </data>
   <data name="Text" xml:space="preserve">
     <value>Текст</value>
@@ -305,5 +314,8 @@
   </data>
   <data name="Year" xml:space="preserve">
     <value>Рік</value>
+  </data>
+  <data name="YearSort" xml:space="preserve">
+    <value>роком виходу</value>
   </data>
 </root>

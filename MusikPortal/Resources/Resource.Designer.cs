@@ -151,6 +151,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to исполителям.
+        /// </summary>
+        public static string ArtSort {
+            get {
+                return ResourceManager.GetString("ArtSort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Отмена.
         /// </summary>
         public static string Cancel {
@@ -538,11 +547,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Сортировать пo:.
+        /// </summary>
+        public static string Sort {
+            get {
+                return ResourceManager.GetString("Sort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Жанр.
         /// </summary>
         public static string Style {
             get {
                 return ResourceManager.GetString("Style", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to жанрам.
+        /// </summary>
+        public static string StyleSort {
+            get {
+                return ResourceManager.GetString("StyleSort", resourceCulture);
             }
         }
         
@@ -624,6 +651,15 @@ namespace Resources {
         public static string Year {
             get {
                 return ResourceManager.GetString("Year", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to году выхода.
+        /// </summary>
+        public static string YearSort {
+            get {
+                return ResourceManager.GetString("YearSort", resourceCulture);
             }
         }
     }

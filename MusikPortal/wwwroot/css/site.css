@@ -184,16 +184,20 @@ header {
 }
 
 main {
-    padding-top: 130px; /* ƒобавл€ем отступ сверху дл€ контента, чтобы он не находилс€ под заголовком */
+    padding-top: 150px; /* ƒобавл€ем отступ сверху дл€ контента, чтобы он не находилс€ под заголовком */
 }
 .m1 {
     width: 150px;
 }
 
 .m2 {
-    margin-left: 400px;
+    margin-left: 300px;
 }
 
 .i {
     display: inline;
+}
+.m3 {
+    margin-left: 40px;
+    padding-bottom:10px
 }
