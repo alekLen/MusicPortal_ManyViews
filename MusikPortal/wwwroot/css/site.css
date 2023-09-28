@@ -213,3 +213,18 @@ main {
 .glyphicon-chevron-left:before {
     content: "\00AB";
 }
+.yellow-link {  
+    transition: color 0.3s; /* Плавное изменение цвета в течение 0.3 секунды */
+}
+.yellow-link:hover {
+   color: yellow; /* Желтый цвет при наведении */
+}
+a:hover {
+    color: forestgreen;
+}
+.nav-link:hover{
+    background-color:yellow;
+}
+.y:hover {
+    background-color: yellow;
+}
