@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using MusicPortal.BLL.Interfaces;
 using MusicPortal.BLL.DTO;
 using MusicPortal.Filters;
+using MusicPortal.DAL.Entities;
 
 namespace MusikPortal.Controllers
 {
@@ -105,21 +106,54 @@ namespace MusikPortal.Controllers
         [AcceptVerbs("Get", "Post")]
         public async Task<IActionResult> IsEmailInUse(string email)
         {
-            bool isEmailInUse =await userService.CheckEmail(email);
-            return Json(!isEmailInUse);
+            UserDTO u = await userService.GetEmail(email);
+            if (u == null)
+                return Json(true);
+            else
+                return Json(false);
         }
         [AcceptVerbs("Get", "Post")]
         public async Task<IActionResult> IsLoginInUse( string login)
         {
-
-            bool isUnique = await userService.GetLogins(login);
-            return Json(isUnique);
+           UserDTO u= await userService.GetUser(login);
+            if (u == null)
+                return Json(true);
+            else
+                return Json(false);
         }
         public ActionResult Logout()
         {
             HttpContext.Session.Clear(); // очищается сессия
             return RedirectToAction("Index", "Home");
         }
-     
+        public IActionResult CheckAge(int age)
+        {
+            try
+            {
+                if (Convert.ToInt32(age) < 0 || Convert.ToInt32(age) > 99)
+                    return Json(false);
+                else
+                    return Json(true);
+            }
+            catch { return Json(false); }
+        }
+        public IActionResult CheckPassword(string password)
+        {
+            int length = password.Length;
+            if (length < 9)
+                return Json(false);
+            int digitCount = password.Count(char.IsDigit);
+            int uppercaseCount = password.Count(char.IsUpper);
+            int lowercaseCount = password.Count(char.IsLower);
+            int specialCharCount = password.Count(c => !char.IsLetterOrDigit(c));
+            if (digitCount == 0 || uppercaseCount == 0 || lowercaseCount == 0 || specialCharCount == 0)
+            {
+                return Json(false);
+            }          
+            else
+            {
+                return Json(true);
+            }
+        }
     }
 }

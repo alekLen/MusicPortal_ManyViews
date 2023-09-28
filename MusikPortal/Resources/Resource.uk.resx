@@ -231,6 +231,9 @@
   <data name="Level" xml:space="preserve">
     <value>Рівень доступу</value>
   </data>
+  <data name="LightPass" xml:space="preserve">
+    <value>більше 8 симолів, як мінімум, одна цифра, одна(A-Z), одна(a-z), один спеціальний символ</value>
+  </data>
   <data name="Listofartists" xml:space="preserve">
     <value>Виберіть автора зі списку</value>
   </data>

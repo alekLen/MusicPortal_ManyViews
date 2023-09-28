@@ -8,13 +8,15 @@ namespace MusikPortal.Models
 
         [Required(ErrorMessageResourceType = typeof(Resources.Resource), ErrorMessageResourceName = "LogRequired")]
         [Display(Name = "loginN", ResourceType = typeof(Resources.Resource))]
-        [Remote("IsLoginIn", "Login", ErrorMessageResourceType = typeof(Resources.Resource),
+        [Remote("IsLoginInUse", "Login", ErrorMessageResourceType = typeof(Resources.Resource),
                 ErrorMessageResourceName = "loginused")]
         public string? Login { get; set; }
 
         [Required(ErrorMessageResourceType = typeof(Resources.Resource),
                  ErrorMessageResourceName = "PassRequired")]
         [Display(Name = "password", ResourceType = typeof(Resources.Resource))]
+        [Remote("CheckPassword", "Login", ErrorMessageResourceType = typeof(Resources.Resource),
+                ErrorMessageResourceName = "LightPass")]
         [DataType(DataType.Password)]
         public string? Password { get; set; }
 
@@ -30,7 +32,7 @@ namespace MusikPortal.Models
         [EmailAddress(ErrorMessageResourceType = typeof(Resources.Resource),
                 ErrorMessageResourceName = "unemail")]
         [Display(Name = "email ")]
-        [Remote("IsEmailIn", "Login", ErrorMessageResourceType = typeof(Resources.Resource),
+        [Remote("IsEmailInUse", "Login", ErrorMessageResourceType = typeof(Resources.Resource),
                 ErrorMessageResourceName = "emailused")]
         public string? email { get; set; }
         [Required(ErrorMessageResourceType = typeof(Resources.Resource),

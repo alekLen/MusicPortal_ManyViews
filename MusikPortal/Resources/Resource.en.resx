@@ -231,6 +231,9 @@
   <data name="Level" xml:space="preserve">
     <value>Level</value>
   </data>
+  <data name="LightPass" xml:space="preserve">
+    <value>more than 8 characters, at least one digit, one(A-Z), one(a-z), one special character</value>
+  </data>
   <data name="Listofartists" xml:space="preserve">
     <value>Choose an artist from the list</value>
   </data>

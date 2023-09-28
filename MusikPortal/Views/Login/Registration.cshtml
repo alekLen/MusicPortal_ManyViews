@@ -34,7 +34,7 @@
             @Html.DisplayNameFor(model => model.email)
             <div>
                 @Html.EditorFor(model => model.email, new { id = "emailInput" })
-                <span asp-validation-for="email" id="emailStatus" class="text-danger"></span>
+                <span asp-validation-for="email"  class="text-danger"></span>
             </div>
         </div>  <div>
             @Html.DisplayNameFor(model => model.age)
@@ -56,4 +56,38 @@
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
 }
+<script>
+    $(document).ready(function () {
 
+        $("#login").on("change", function (e) {
+            let log = e.target.value;
+            let r = true;
+            $.getJSON('/Login/IsLoginIn', function (data) {
+                $.each(data, function (key, val) {
+                    if (log == val) {
+                        $("#log").css("display", "block");
+                        r = false;
+                    }
+                    if (r) {
+                        $("#log").css("display", "none");
+                    }
+                })
+
+
+            });
+
+
+        });
+
+
+        $('#emailInput').on('blur', function () {
+            var email = $(this).val();
+            $.get('/Login/IsEmailInUse', { email: email }, function (data) {
+                if (data === true) {
+                    $('#emailStatus').text('Email уже занят.');
+                }
+
+            });
+        });
+    });
+</script>

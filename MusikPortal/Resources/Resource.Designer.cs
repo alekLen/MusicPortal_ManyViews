@@ -403,6 +403,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to более 8 симолов, как минимум одна цифра, одна(A-Z), одна(a-z), один специальный символ.
+        /// </summary>
+        public static string LightPass {
+            get {
+                return ResourceManager.GetString("LightPass", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Выберите испонителя из списка.
         /// </summary>
         public static string Listofartists {
