@@ -172,6 +172,10 @@ body {
     align-items: center;
    width: 90vw;
 }
+.head {
+    display: flex;
+    justify-content:space-around
+}
 .br{
     background-color:brown;
 }
@@ -196,10 +200,11 @@ main {
 
 .i {
     display: inline;
+    width:150px;
 }
 .m3 {
-    margin-left: 40px;
-    padding-bottom:10px
+    margin-left: 10px;
+    padding-bottom:5px
 }
 .glyphicon {
     display: inline-block;
@@ -227,4 +232,17 @@ a:hover {
 }
 .y:hover {
     background-color: yellow;
+}
+.p {
+    margin-left: 0;
+    padding-left: 0;
+}
+.pr{
+    margin-top: -40px;
+}
+.sm{
+    font-size:0.8em;
+}
+.back{
+    padding:20px;
 }

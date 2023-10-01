@@ -29,7 +29,7 @@ namespace MusicPortal.BLL.Services
         {
             var st = await Database.Styles.Get(id);
             if (st == null)
-                throw new ValidationException("Wrong artist!", "");
+                throw new ValidationException("Wrong style!", "");
             return new StyleDTO
             {
                 Id = st.Id,

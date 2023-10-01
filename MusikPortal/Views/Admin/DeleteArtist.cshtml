@@ -1,7 +1,10 @@
-﻿@model MusicPortal.BLL.DTO.ArtistDTO
+﻿@{
+    Layout = "_Login";
+}
+@model MusicPortal.BLL.DTO.ArtistDTO
 
-<h4 class=" b1 b3 c20 center">@Resources.Resource.Confirmdeletion</h4>
-<div class="center">
+<h4 class=" b1 b3 c20 center pr">@Resources.Resource.Confirmdeletion</h4>
+<div class="center pr">
     <div class=" card c22">
         <form asp-controller="Admin" method="post" enctype="multipart/form-data">
             <div>

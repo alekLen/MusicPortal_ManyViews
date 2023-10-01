@@ -1,6 +1,9 @@
-﻿@model MusikPortal.Models.AddSong
+﻿@{
+    Layout = "_Login";
+}
+@model MusikPortal.Models.AddSong
 
-<h3 class=" b1 b3 center c20">@Resources.Resource.AddSong</h3>
+<h3 class=" b1 b3 center c20 pr">@Resources.Resource.AddSong</h3>
 <div class="center">
         <div class="card c77">
             <form asp-action="Create" asp-controller="Song" method="post" enctype="multipart/form-data">

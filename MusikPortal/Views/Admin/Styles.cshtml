@@ -1,7 +1,10 @@
-﻿@model MusicPortal.BLL.DTO.StyleDTO
+﻿@{
+    Layout = "_Login";
+}
+@model MusicPortal.BLL.DTO.StyleDTO
 
-<h4 class=" b1 b3 c20 center"> @Resources.Resource.Style</h4>
-<div class="center">
+<h4 class=" b1 b3 c20 center pr"> @Resources.Resource.Style</h4>
+<div class="center pr">
 <div class=" card c7">
 <form  asp-controller="Admin" method="post">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>

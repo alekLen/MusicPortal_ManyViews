@@ -1,7 +1,11 @@
-﻿@model MusikPortal.Models.LoginModel
+﻿@{
+    Layout = "_Login";
+}
+
+@model MusikPortal.Models.LoginModel
 @using Microsoft.AspNetCore.Http
 
-<div class="center">
+<div class="center pr">
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -12,16 +16,16 @@
             <div>
                 @Html.LabelFor(model => model.Login)
                 <div>
-                    @Html.EditorFor(model => model.Login)
-                    @Html.ValidationMessageFor(model => model.Login, "")
+                        @Html.EditorFor(model => model.Login)
+                        @Html.ValidationMessageFor(model => model.Login, "")
                 </div>
             </div>
 
             <div>
-                @Html.LabelFor(model => model.Password)
+                    @Html.LabelFor(model => model.Password)
                 <div>
-                    @Html.PasswordFor(model => model.Password)
-                    @Html.ValidationMessageFor(model => model.Password, "")
+                        @Html.PasswordFor(model => model.Password)
+                        @Html.ValidationMessageFor(model => model.Password, "")
                 </div>
             </div>
 

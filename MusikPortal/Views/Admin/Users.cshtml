@@ -1,8 +1,11 @@
-﻿@using Microsoft.AspNetCore.Http
+﻿@{
+    Layout = "_Login";
+}
+@using Microsoft.AspNetCore.Http
 @model MusicPortal.BLL.DTO.UserDTO
 
 
-<div class="c20"> <h4>@Resources.Resource.Newusers</h4></div>
+<div class="c20 pr"> <h4>@Resources.Resource.Newusers</h4></div>
     <div class="c3">
     <table>
         <tr class="c20"><th>@Resources.Resource.loginN</th><th style="width:60px">@Resources.Resource.age</th><th>@Resources.Resource.email</th><th style="width:80px">@Resources.Resource.Level</th><th></th></tr>

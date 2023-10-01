@@ -219,6 +219,12 @@
   <data name="File" xml:space="preserve">
     <value>Déposer</value>
   </data>
+  <data name="Filtr" xml:space="preserve">
+    <value>Filtrer</value>
+  </data>
+  <data name="FiltrBy" xml:space="preserve">
+    <value>Filtrer par:</value>
+  </data>
   <data name="Find" xml:space="preserve">
     <value>Trouver</value>
   </data>
@@ -245,6 +251,9 @@
   </data>
   <data name="loginN" xml:space="preserve">
     <value>se connecter</value>
+  </data>
+  <data name="loginpassword" xml:space="preserve">
+    <value>le login/mot de passe est incorrect</value>
   </data>
   <data name="loginused" xml:space="preserve">
     <value>*la connexion a déjà été enregistrée</value>

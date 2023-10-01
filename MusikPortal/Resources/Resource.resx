@@ -219,6 +219,12 @@
   <data name="File" xml:space="preserve">
     <value>Файл</value>
   </data>
+  <data name="Filtr" xml:space="preserve">
+    <value>Фильтровать</value>
+  </data>
+  <data name="FiltrBy" xml:space="preserve">
+    <value>Фильтровать по:</value>
+  </data>
   <data name="Find" xml:space="preserve">
     <value>Найти</value>
   </data>
@@ -245,6 +251,9 @@
   </data>
   <data name="loginN" xml:space="preserve">
     <value>логин</value>
+  </data>
+  <data name="loginpassword" xml:space="preserve">
+    <value>логин/пароль не верный</value>
   </data>
   <data name="loginused" xml:space="preserve">
     <value>*логин уже зарегестрирован</value>

@@ -7,6 +7,8 @@ using MusicPortal.BLL.Interfaces;
 using MusicPortal.BLL.DTO;
 using MusicPortal.Filters;
 using MusicPortal.DAL.Entities;
+using MusicPortal.Models;
+using MusicPortal.BLL.Services;
 
 namespace MusikPortal.Controllers
 {
@@ -14,9 +16,15 @@ namespace MusikPortal.Controllers
     public class LoginController : Controller
     {
         private readonly IUserService userService;
-        public LoginController(IUserService u)
+        private readonly ISongService songService;
+        private readonly IArtistService artistService;
+        private readonly IStyleService styleService;
+        public LoginController(IUserService u, ISongService song, IArtistService a, IStyleService st)
         {
-            userService = u;           
+            userService = u;
+            songService = song;
+            artistService = a;
+            styleService = st;
         }
         public IActionResult Registration()
         {
@@ -61,10 +69,19 @@ namespace MusikPortal.Controllers
                 }
             return View(user);
         }
-        public IActionResult Login()
+        public async Task<IActionResult> Login()
         {
             HttpContext.Session.SetString("path", Request.Path);
-            return View();
+           /* IEnumerable<ArtistDTO> a = await artistService.GetAllArtists();
+            IEnumerable<StyleDTO> stt = await styleService.GetAllStyles();
+            LoginViewModel viewModel = new( 
+           new FilterViewModel(a.ToList(), 0, stt.ToList(), 0),
+           new LoginModel()
+         );
+            
+
+            return View(viewModel);*/
+             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -90,13 +107,13 @@ namespace MusikPortal.Controllers
                         }
                         else
                         {
-                            ModelState.AddModelError("", "login/password  not correct");
+                            ModelState.AddModelError("", Resources.Resource.loginpassword);
                             return View(user);
                         }
                     }
                     else
                     {
-                        ModelState.AddModelError("", "login/password  not correct");
+                        ModelState.AddModelError("", Resources.Resource.loginpassword);
                         return View(user);
                     }
                 }

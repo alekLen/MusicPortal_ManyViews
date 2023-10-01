@@ -1,0 +1,24 @@
+﻿@{
+    Layout = "_Login";
+}
+@model MusicPortal.BLL.DTO.StyleDTO
+
+<h4 class=" b1 b3 c20 center pr">@Resources.Resource.Confirmdeletion</h4>
+<div class="center pr">
+    <div class=" card c22">
+        <form asp-controller="Admin" method="post" >            
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <span>@Resources.Resource.Style</span><br />
+                <input asp-for="Name" value="@Model.Name" class="form-control card c23" readonly="readonly" />
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" formaction="ConfirmDeleteStyle" value="@Resources.Resource.Delete" class="btn btn-primary c2 c23" />
+            </div><br />
+            <div class="form-group">
+                <input type="submit" formaction="CancelDeleteStyle" value="@Resources.Resource.Cancel" class="btn btn-primary c2 c23" />
+            </div>
+        </form>
+    </div>
+</div>

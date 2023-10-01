@@ -367,6 +367,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Фильтровать.
+        /// </summary>
+        public static string Filtr {
+            get {
+                return ResourceManager.GetString("Filtr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Фильтровать по:.
+        /// </summary>
+        public static string FiltrBy {
+            get {
+                return ResourceManager.GetString("FiltrBy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Найти.
         /// </summary>
         public static string Find {
@@ -444,6 +462,15 @@ namespace Resources {
         public static string loginN {
             get {
                 return ResourceManager.GetString("loginN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to логин/пароль не верный.
+        /// </summary>
+        public static string loginpassword {
+            get {
+                return ResourceManager.GetString("loginpassword", resourceCulture);
             }
         }
         

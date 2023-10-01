@@ -114,6 +114,22 @@ namespace MusikPortal.Controllers
         {
             HttpContext.Session.SetString("path", Request.Path);
             try
+            {
+                StyleDTO a = await styleService.GetStyle(s.Id);
+                return View(a);
+            }
+            catch
+            {
+                await putStyles();
+                return View("Styles");
+            }
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ConfirmDeleteStyle(StyleDTO s)
+        {
+            HttpContext.Session.SetString("path", Request.Path);
+            try
                 {
                     await styleService.DeleteStyle(s.Id);
                     return RedirectToAction("Index", "Home");
@@ -163,6 +179,14 @@ namespace MusikPortal.Controllers
             HttpContext.Session.SetString("path", Request.Path);
             await putArtists();
             return View("Artists");
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CancelDeleteStyle()
+        {
+            HttpContext.Session.SetString("path", Request.Path);
+            await putStyles();
+            return View("Styles");
         }
         [HttpPost]
         [ValidateAntiForgeryToken]

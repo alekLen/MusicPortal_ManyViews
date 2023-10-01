@@ -1,8 +1,11 @@
-﻿@model MusicPortal.BLL.DTO.SongDTO
+﻿@{
+    Layout = "_Login";
+}
+@model MusicPortal.BLL.DTO.SongDTO
 
-<h1 class=" b1 b3 center c20">@Resources.Resource.Confirmdeletion</h1>
+<h1 class=" b1 b3 center c20 pr">@Resources.Resource.Confirmdeletion</h1>
 
-<div class="center">
+<div class="center pr">
     <div class="card c77">
         <form formaction="Delete" asp-controller="Admin" method="post" >
             <input asp-for="Id" type="hidden" />
@@ -11,7 +14,7 @@
                 <input asp-for="Name" class="form-control" readonly />
             </div>
             <span>@Resources.Resource.Album </span><br />
-            <input asp-for="@Resources.Resource.Album" class="form-control" readonly />
+            <input asp-for="Album" class="form-control" readonly />
             <div class="form-group">
                 <label>@Resources.Resource.Style</label>
                 <input asp-for="style" class="form-control" readonly />

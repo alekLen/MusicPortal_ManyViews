@@ -219,6 +219,12 @@
   <data name="File" xml:space="preserve">
     <value>Datei</value>
   </data>
+  <data name="Filtr" xml:space="preserve">
+    <value>Filtern</value>
+  </data>
+  <data name="FiltrBy" xml:space="preserve">
+    <value>Filtern nach:</value>
+  </data>
   <data name="Find" xml:space="preserve">
     <value>Finden</value>
   </data>
@@ -245,6 +251,9 @@
   </data>
   <data name="loginN" xml:space="preserve">
     <value>login</value>
+  </data>
+  <data name="loginpassword" xml:space="preserve">
+    <value>Login/Passwort ist falsch</value>
   </data>
   <data name="loginused" xml:space="preserve">
     <value>*Login wurde bereits registriert</value>

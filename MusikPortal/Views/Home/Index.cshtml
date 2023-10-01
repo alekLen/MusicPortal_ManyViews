@@ -1,9 +1,9 @@
-﻿@model MusikPortal.Models.PageViewModel
+﻿@model MusikPortal.Models.IndexViewModel
 
 
 @using Microsoft.AspNetCore.Http
 <div>
- @foreach (var s in ViewBag.Songs)
+    @foreach (var s in Model.Songs)
  {   <div class="c3">
        <div>
       
@@ -24,7 +24,7 @@
                             @if (@st[st.Count()-1] == "mp3")
                         {
                             <div>
-                                <img src=@Url.Content(s.artist.photo) style="width:auto;height:270px"/>
+                                <img src=@Url.Content(s.artistPhoto) style="width:auto;height:270px"/>
                             </div>
                             <video controls autoplay="autoplay" loop="loop" muted="muted" width="500" height="30">
                                 <source src=@s.file type="video/mp4">
@@ -93,17 +93,20 @@
  }
 </div>
 <p>
-    @if (Model.HasPreviousPage)
+    @if (Model.PageViewModel.HasPreviousPage)
     {
         <a asp-action="Index"
-           asp-route-page="@(Model.PageNumber - 1)" class="glyphicon glyphicon-chevron-left nav-link text-dark card2">
+           asp-route-page="@(Model.PageViewModel.PageNumber - 1)" class="glyphicon glyphicon-chevron-left nav-link text-dark card2">
             @Resources.Resource.Back
         </a>
     }
-    @if (Model.HasNextPage)
+    @if (Model.PageViewModel.HasNextPage)
     {
         <a asp-action="Index"
-           asp-route-page="@(Model.PageNumber + 1)" class="glyphicon glyphicon-chevron-right nav-link text-dark card2">
+           asp-route-art="@(Model.FilterViewModel.SelectedArtist)"
+           asp-route-st="@(Model.FilterViewModel.SelectedStyle)"
+           asp-route-sortorder="@(Model.SortViewModel.Current)"
+           asp-route-page="@(Model.PageViewModel.PageNumber + 1)" class="glyphicon glyphicon-chevron-right nav-link text-dark card2">
             @Resources.Resource.Forward
         </a>
     }

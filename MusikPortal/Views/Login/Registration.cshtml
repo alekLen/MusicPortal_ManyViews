@@ -1,6 +1,9 @@
-﻿@model MusikPortal.Models.RegisterModel
+﻿@{
+    Layout = "_Login";
+}
+@model MusikPortal.Models.RegisterModel
 @using Microsoft.AspNetCore.Http
-<div class="center">
+<div class="center pr">
 <form id="registrationForm" action="Registration" method="post">
     @Html.AntiForgeryToken()
     <div class="card c22">
