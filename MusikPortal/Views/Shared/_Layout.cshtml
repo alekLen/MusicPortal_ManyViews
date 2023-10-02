@@ -6,7 +6,7 @@
     <title>@ViewData["Title"] - MusicPortal</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/GestBook.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/MusikPotal.styles.css" asp-append-version="true" />
     <script src="~/js/site.js" ></script>
     <script src="~/js/jquery-3.5.1.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -60,10 +60,9 @@
             <div class="m3" >
                 <span class="c20 ">@Resources.Resource.Sort</span><br />
                 <div class="c3" >
-                    <a asp-controller="Home" asp-action="Index" asp-route-sortOrder="@(Model.SortViewModel.ArtSort)"
+                   @* <a asp-controller="Home" asp-action="Index" asp-route-sortOrder="@(Model.SortViewModel.ArtSort)"
                        asp-route-art="@(Model.FilterViewModel.SelectedArtist)"
-                       asp-route-st="@(Model.FilterViewModel.SelectedStyle)"
-                       asp-route-page="@(Model.PageViewModel.PageNumber)"
+                       asp-route-st="@(Model.FilterViewModel.SelectedStyle)"                    
                        asp-route-str="@(Model.find)"
                     class="nav-link text-dark card2">
                 @Resources.Resource.ArtSort
@@ -71,7 +70,6 @@
                     <a asp-controller="Home" asp-action="Index" asp-route-sortOrder="@(Model.SortViewModel.StyleSort)"
                        asp-route-art="@(Model.FilterViewModel.SelectedArtist)"
                        asp-route-st="@(Model.FilterViewModel.SelectedStyle)"
-                       asp-route-page="@(Model.PageViewModel.PageNumber)"
                        asp-route-str="@(Model.find)"
                     class="nav-link text-dark card2">
                 @Resources.Resource.StyleSort
@@ -80,11 +78,30 @@
                        asp-route-sortOrder="@(Model.SortViewModel.YearSort)"
                        asp-route-art="@(Model.FilterViewModel.SelectedArtist)"
                        asp-route-st="@(Model.FilterViewModel.SelectedStyle)"
-                       asp-route-page="@(Model.PageViewModel.PageNumber)"
                        asp-route-str="@(Model.find)"
                     class="nav-link text-dark card2">
                     @Resources.Resource.YearSort
-                    </a>
+                    </a>*@
+
+                    <sort-header action="Index" up="@Model.SortViewModel.Up"
+                                 current="@Model.SortViewModel.OldCurrent" property="@Model.SortViewModel.ArtSort"
+                                 art="@(Model.FilterViewModel.SelectedArtist)"
+                                 st="@(Model.FilterViewModel.SelectedStyle)" str="@(Model.find)">
+                        @Resources.Resource.ArtSort
+                    </sort-header>
+                    <sort-header action="Index" up="@Model.SortViewModel.Up"
+                                 current="@Model.SortViewModel.OldCurrent" property="@Model.SortViewModel.StyleSort"
+                                 art="@(Model.FilterViewModel.SelectedArtist)"
+                                 st="@(Model.FilterViewModel.SelectedStyle)" str="@(Model.find)">
+                        @Resources.Resource.StyleSort
+                    </sort-header>
+                    <sort-header action="Index" up="@Model.SortViewModel.Up"                                
+                                 current="@Model.SortViewModel.OldCurrent" property="@Model.SortViewModel.YearSort"
+                                 art="@(Model.FilterViewModel.SelectedArtist)"
+                                 st="@(Model.FilterViewModel.SelectedStyle)" str="@(Model.find)">
+                        @Resources.Resource.YearSort
+                    </sort-header>
+
                 </div>
             </div>
         </div>
@@ -191,7 +208,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container c20">
-            &copy; 2023 - @Resources.Resource.MusicPortal - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2023 - @Resources.Resource.MusicPortal
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

@@ -1,6 +1,5 @@
 ﻿@model MusikPortal.Models.IndexViewModel
 
-
 @using Microsoft.AspNetCore.Http
 <div>
     @foreach (var s in Model.Songs)
@@ -96,6 +95,9 @@
     @if (Model.PageViewModel.HasPreviousPage)
     {
         <a asp-action="Index"
+           asp-route-art="@(Model.FilterViewModel.SelectedArtist)"
+           asp-route-st="@(Model.FilterViewModel.SelectedStyle)"
+           asp-route-sortorder="@(Model.SortViewModel.Current)"
            asp-route-page="@(Model.PageViewModel.PageNumber - 1)" class="glyphicon glyphicon-chevron-left nav-link text-dark card2">
             @Resources.Resource.Back
         </a>

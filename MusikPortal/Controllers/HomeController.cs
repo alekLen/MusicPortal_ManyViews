@@ -108,6 +108,6 @@ namespace MusikPortal.Controllers
             Response.Cookies.Append("lang", lang, option); // создание куки
             string url = "/Home/Index/?" + "str=" + str + "&sortOrder=" + sortOrder + "&page=" + page + "&art=" + art + "&st=" + st;
             return Redirect(url);
-        }
+        }      
     }
 }
