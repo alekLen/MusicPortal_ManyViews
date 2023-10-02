@@ -262,3 +262,6 @@ a:hover {
 .back{
     padding:20px;
 }
+.page-link:hover {
+    background-color: yellow;
+}
