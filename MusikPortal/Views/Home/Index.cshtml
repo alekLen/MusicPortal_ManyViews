@@ -71,18 +71,18 @@
                 <br />
                 <br />
                 <div class="card c18 c19 text-center">
-                <a href="@s.file" download>@Resources.Resource.download</a>
+                <a class="nav-link card2" href="@s.file" download>@Resources.Resource.download</a>
                 </div>
         @if (Context.Session.GetString("admin") != null)
         {
                 <br />
                 <br />
                     <div class="card c18 c19 text-center">
-                 <a asp-controller="Admin" asp-action="EditSong" asp-route-id="@s.Id">@Resources.Resource.Edit</a>
+                        <a class="nav-link card2" asp-controller="Admin" asp-action="EditSong" asp-route-id="@s.Id">@Resources.Resource.Edit</a>
              </div>
 
                     <div class="card c18 c19 text-center">
-                  <a asp-controller="Admin" asp-action="DeleteSong" asp-route-id="@s.Id">@Resources.Resource.Delete</a>
+                        <a class="nav-link card2" asp-controller="Admin" asp-action="DeleteSong" asp-route-id="@s.Id">@Resources.Resource.Delete</a>
              </div>
         }
         </div>

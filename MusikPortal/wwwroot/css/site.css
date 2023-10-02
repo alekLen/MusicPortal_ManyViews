@@ -141,7 +141,7 @@ body {
     width: 420px;
 }
 .c18 {
-    width: 120px;
+    width: 150px;
 }
 .c19{
     padding:2px;
@@ -264,4 +264,10 @@ a:hover {
 }
 .page-link:hover {
     background-color: yellow;
+}
+.sl {
+    font-size: 1.4em;
+}
+.pd{
+    padding:5px;
 }

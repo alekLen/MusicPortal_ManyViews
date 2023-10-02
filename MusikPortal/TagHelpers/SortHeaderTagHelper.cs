@@ -34,8 +34,8 @@ namespace MusikPortal.TagHelpers
             output.TagName = "a";
             string? url = urlHelper.Action(Action, new { sortOrder = Property, art=Art, st=St, str=Str });
             output.Attributes.SetAttribute("href", url);
-            output.Attributes.SetAttribute("class", "nav-link");
-            output.Attributes.SetAttribute("class","card2");
+            output.Attributes.SetAttribute("class", "nav-link card2");
+           // output.Attributes.SetAttribute("class","card2");
             // если текущее свойство имеет значение CurrentSort
             if (Current == Property)
             {
