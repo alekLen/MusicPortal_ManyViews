@@ -159,6 +159,9 @@ body {
 .c23 {
     width: 220px
 }
+.c24 {
+    color: blue;
+}
 .im {
     max-width: 150px;
     height: auto;
@@ -269,5 +272,9 @@ a:hover {
     font-size: 1.4em;
 }
 .pd{
+    padding:5px;
+}
+.push{
+    background-color:yellow;
     padding:5px;
 }

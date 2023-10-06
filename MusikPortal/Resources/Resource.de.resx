@@ -123,6 +123,9 @@
   <data name="AddArt" xml:space="preserve">
     <value>Künstler hinzufügen</value>
   </data>
+  <data name="AddedStyle" xml:space="preserve">
+    <value>Genre wurde hinzugefügt</value>
+  </data>
   <data name="Addition" xml:space="preserve">
     <value>Zusatz</value>
   </data>

@@ -123,6 +123,9 @@
   <data name="AddArt" xml:space="preserve">
     <value>додати виконавця</value>
   </data>
+  <data name="AddedStyle" xml:space="preserve">
+    <value>Було додано жанр</value>
+  </data>
   <data name="Addition" xml:space="preserve">
     <value>Додавання</value>
   </data>

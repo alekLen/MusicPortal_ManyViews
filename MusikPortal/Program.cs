@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using MusicPortal.BLL.Interfaces;
 using MusicPortal.BLL.Services;
 using MusicPortal.BLL.Infrastructure;
+using MusicPortal;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +20,8 @@ builder.Services.AddTransient<IStyleService, StyleService>();
 builder.Services.AddTransient<ISongService, SongService>();
 builder.Services.AddTransient<IUserService, UserService>();
 builder.Services.AddTransient<ISaltService, SaltService>();
+
+builder.Services.AddSignalR();
 
 // добавляем сервис для динамического создания вьюшек
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
@@ -38,5 +41,5 @@ app.UseSession();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-
+app.MapHub<NotificationHub>("/notification");
 app.Run();

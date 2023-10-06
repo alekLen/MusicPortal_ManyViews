@@ -79,6 +79,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Был добавлен жанр:.
+        /// </summary>
+        public static string AddedStyle {
+            get {
+                return ResourceManager.GetString("AddedStyle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Добавление.
         /// </summary>
         public static string Addition {
