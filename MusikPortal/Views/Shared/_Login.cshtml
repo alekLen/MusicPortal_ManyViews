@@ -32,6 +32,12 @@
         </div>
          <div style="height:8px; width:100%; background-color:white"></div>
         <div class="center"><span id="notification1AS" class="c24 push">@Resources.Resource.AddedStyle</span><span id="notification1AS1" class="c24 push"></span></div>
+        <div class="center"><span id="notification1AA" class="c24 push">@Resources.Resource.AddedArtist</span><span id="notification1AA1" class="c24 push"></span></div>
+        <div class="center"><span id="notification1DS" class="c24 push">@Resources.Resource.DeletedStyle</span><span id="notification1DS1" class="c24 push"></span></div>
+        <div class="center"><span id="notification1DA" class="c24 push">@Resources.Resource.DeletedArtist</span><span id="notification1DA1" class="c24 push"></span></div>
+        <div class="center"><span id="notification1ASn" class="c24 push">@Resources.Resource.AddedSong</span><span id="notification1ASn1" class="c24 push"></span></div>
+        <div class="center"><span id="notification1ESn" class="c24 push">@Resources.Resource.EdSong</span><span id="notification1ESn1" class="c24 push"></span></div>
+        <div class="center"><span id="notification1DSn" class="c24 push">@Resources.Resource.DelSong</span><span id="notification1DSn1" class="c24 push"></span></div>
     </header>
    
     <div class="container">
@@ -74,6 +80,42 @@
                 $('#notification1AS').css("display", "block");
                 $('#notification1AS1').css("display", "block");
                 $('#notification1AS1').html(c);
+            }
+            else if (message.includes("AddArtist")) {
+                var c = message.replace("AddArtist", '');
+                $('#notification1AA').css("display", "block");
+                $('#notification1AA1').css("display", "block");
+                $('#notification1AA1').html(c);
+            }
+            else if (message.includes("DelStyle")) {
+                var c = message.replace("DelStyle", '');
+                $('#notification1DS').css("display", "block");
+                $('#notification1DS1').css("display", "block");
+                $('#notification1DS1').html(c);
+            }
+            else if (message.includes("DelArtist")) {
+                var c = message.replace("DelArtist", '');
+                $('#notification1DA').css("display", "block");
+                $('#notification1DA1').css("display", "block");
+                $('#notification1DA1').html(c);
+            }
+            else if (message.includes("AdSong")) {
+                var c = message.replace("AdSong", '');
+                $('#notification1ASn').css("display", "block");
+                $('#notification1ASn1').css("display", "block");
+                $('#notification1ASn1').html(c);
+            }
+            else if (message.includes("EdSong")) {
+                var c = message.replace("EdSong", '');
+                $('#notification1ESn').css("display", "block");
+                $('#notification1ESn1').css("display", "block");
+                $('#notification1ESn1').html(c);
+            }
+            else if (message.includes("DelSong")) {
+                var c = message.replace("DelSong", '');
+                $('#notification1DSn').css("display", "block");
+                $('#notification1DSn1').css("display", "block");
+                $('#notification1DSn1').html(c);
             }
         });
 

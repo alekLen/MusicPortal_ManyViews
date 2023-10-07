@@ -198,6 +198,15 @@
             </div>
         </nav>
         <div class="center"><span id="notificationAS" class="c24 push">@Resources.Resource.AddedStyle</span><span id="notificationAS1" class="c24 push"></span></div>
+        <div class="center"><span id="notificationAA" class="c24 push">@Resources.Resource.AddedArtist</span><span id="notificationAA1" class="c24 push"></span></div>
+        <div class="center"><span id="notificationDS" class="c24 push">@Resources.Resource.DeletedStyle</span><span id="notificationDS1" class="c24 push"></span></div>
+        <div class="center"><span id="notificationDA" class="c24 push">@Resources.Resource.DeletedArtist</span><span id="notificationDA1" class="c24 push"></span></div>
+         <div class="center"><span id="notificationES" class="c24 push">@Resources.Resource.EdStyle</span><span id="notificationES1" class="c24 push"></span></div>
+        <div class="center"><span id="notificationEA" class="c24 push">@Resources.Resource.EdArtist</span><span id="notificationEA1" class="c24 push"></span></div>
+        <div class="center"><span id="notificationASn" class="c24 push">@Resources.Resource.AddedSong</span><span id="notificationASn1" class="c24 push"></span></div>
+        <div class="center"><span id="notificationESn" class="c24 push">@Resources.Resource.EdSong</span><span id="notificationESn1" class="c24 push"></span></div>
+        <div class="center"><span id="notificationDSn" class="c24 push">@Resources.Resource.DelSong</span><span id="notificationDSn1" class="c24 push"></span></div>
+    
     </header>   
     <div class="container">
         <main role="main" class="pb-3">
@@ -239,6 +248,54 @@
                 $('#notificationAS').css("display", "block");
                 $('#notificationAS1').css("display", "block");
                 $('#notificationAS1').html(c);
+            }
+           else if (message.includes("AddArtist")) {
+                var c = message.replace("AddArtist", '');
+                $('#notificationAA').css("display", "block");
+                $('#notificationAA1').css("display", "block");
+                $('#notificationAA1').html(c);
+            }
+            else if (message.includes("DelStyle")) {
+                var c = message.replace("DelStyle", '');
+                $('#notificationDS').css("display", "block");
+                $('#notificationDS1').css("display", "block");
+                $('#notificationDS1').html(c);
+            }
+            else if (message.includes("DelArtist")) {
+                var c = message.replace("DelArtist", '');
+                $('#notificationDA').css("display", "block");
+                $('#notificationDA1').css("display", "block");
+                $('#notificationDA1').html(c);
+            }
+             else if (message.includes("EdStyle")) {
+                var c = message.replace("EdStyle", '');
+                $('#notificationES').css("display", "block");
+                $('#notificationES1').css("display", "block");
+                $('#notificationES1').html(c);
+            }
+            else if (message.includes("EdArtist")) {
+                var c = message.replace("EdArtist", '');
+                $('#notificationEA').css("display", "block");
+                $('#notificationEA1').css("display", "block");
+                $('#notificationEA1').html(c);
+            }
+             else if (message.includes("AdSong")) {
+                var c = message.replace("AdSong", '');
+                $('#notificationAsn').css("display", "block");
+                $('#notificationASn1').css("display", "block");
+                $('#notificationASn1').html(c);
+            }
+             else if (message.includes("EdSong")) {
+                var c = message.replace("EdSong", '');
+                $('#notificationESn').css("display", "block");
+                $('#notificationESn1').css("display", "block");
+                $('#notificationESn1').html(c);
+            }
+            else if (message.includes("DelSong")) {
+                var c = message.replace("DelSong", '');
+                $('#notificationDSn').css("display", "block");
+                $('#notificationDSn1').css("display", "block");
+                $('#notificationDSn1').html(c);
             }
         });
 

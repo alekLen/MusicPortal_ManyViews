@@ -7,7 +7,8 @@ using MusicPortal.BLL.Interfaces;
 using MusicPortal.BLL.DTO;
 using MusicPortal.BLL.Services;
 using MusicPortal.Filters;
-
+using Microsoft.AspNetCore.SignalR;
+using MusicPortal;
 
 namespace MusikPortal.Controllers
 {
@@ -15,15 +16,23 @@ namespace MusikPortal.Controllers
     public class SongController : Controller
     {
         IWebHostEnvironment _appEnvironment;
+        IHubContext<NotificationHub> hubContext { get; }
         private readonly ISongService songService;
         private readonly IArtistService artistService;
         private readonly IStyleService styleService;
-        public SongController(ISongService s, IArtistService a, IStyleService st, IWebHostEnvironment appEnvironment)
+        public SongController(ISongService s, IArtistService a, IStyleService st,
+            IWebHostEnvironment appEnvironment, IHubContext<NotificationHub> hub)
         {
             songService = s;
             artistService = a;
             styleService = st;
             _appEnvironment = appEnvironment;
+            hubContext = hub;
+        }
+        private async Task SendMessage(string message)
+        {
+            // Вызов метода displayMessage на всех клиентах, пуш уведомления при изменениях в БД
+            await hubContext.Clients.All.SendAsync("displayMessage", message);
         }
         public async Task<IActionResult> Create()
         {
@@ -74,7 +83,7 @@ namespace MusikPortal.Controllers
                     try
                     {
                         await songService.AddSong(s);
-                        
+                        await SendMessage("AdSong" + s.Name);
                         await songService.AddSongToArtist(song.ArtistId, s);
                      
                         return RedirectToAction("Index", "Home");

@@ -106,8 +106,9 @@ namespace MusikPortal.Controllers
                
                     try
                     {
-                        await artistService.AddArtist(art);                    
-                        return RedirectToAction("Index", "Home");
+                        await artistService.AddArtist(art);
+                    await SendMessage("AddArtist" + s.Name);
+                    return RedirectToAction("Index", "Home");
                     }
                     catch
                     {
@@ -143,7 +144,8 @@ namespace MusikPortal.Controllers
             try
                 {
                     await styleService.DeleteStyle(s.Id);
-                    return RedirectToAction("Index", "Home");
+                await SendMessage("DelStyle" + s.Name);
+                return RedirectToAction("Index", "Home");
                 }
                 catch
                 {
@@ -175,6 +177,7 @@ namespace MusikPortal.Controllers
             try
             {
                 await artistService.DeleteArtist(s.Id);
+                await SendMessage("DelArtist" + s.Name);
                 return RedirectToAction("Index", "Home");
             }
             catch
@@ -209,7 +212,8 @@ namespace MusikPortal.Controllers
                     try
                     {
                         await styleService.UpdateStyle(s.Id,s.Name);
-                        return RedirectToAction("Index", "Home");
+                    await SendMessage("EdStyle" + s.Name);
+                    return RedirectToAction("Index", "Home");
                     }
                     catch
                     {
@@ -235,16 +239,20 @@ namespace MusikPortal.Controllers
                         string str = p.FileName.Replace(" ", "_");
                         string str1 = str.Replace("-", "_");
                         // Путь к папке Files
-                        string path = "/Photos/" +str1; // имя файла
+                        string path = "/Photos/" + str1; // имя файла
 
                         using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
                         {
                             await p.CopyToAsync(fileStream); // копируем файл в поток
                         }
                         await artistService.UpdateArtist(s.Id, s.Name, path);
+                        await SendMessage("EdArtist" + s.Name);
                     }
                     else
-                        await artistService.UpdateArtist(s.Id, s.Name,s.photo);                  
+                    {
+                        await artistService.UpdateArtist(s.Id, s.Name, s.photo);
+                        await SendMessage("EdArtist" + s.Name);
+                    }
                     return RedirectToAction("Index", "Home");
                 }
                 catch
@@ -327,8 +335,9 @@ namespace MusikPortal.Controllers
         {            
             try
             {
+                SongDTO s = await songService.GetSong(id);
                 await songService.DeleteSong(id);
-             
+                await SendMessage("DelSong" + s.Name);
                 return RedirectToAction("Index", "Home");
             }
             catch
@@ -413,8 +422,8 @@ namespace MusikPortal.Controllers
                     song.file = s.file;
                     song.text = s.text;
                     await songService.UpdateSong(song);
-               
-                    return RedirectToAction("Index", "Home");
+                        await SendMessage("EdSong" + song.Name);
+                        return RedirectToAction("Index", "Home");
                     }
                     catch
                     {

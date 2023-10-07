@@ -79,6 +79,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Был добавлен исполнитель:  .
+        /// </summary>
+        public static string AddedArtist {
+            get {
+                return ResourceManager.GetString("AddedArtist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Была добавлена песня:  .
+        /// </summary>
+        public static string AddedSong {
+            get {
+                return ResourceManager.GetString("AddedSong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Был добавлен жанр:  .
         /// </summary>
         public static string AddedStyle {
@@ -259,11 +277,47 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Исполнитель был удален:  .
+        /// </summary>
+        public static string DeletedArtist {
+            get {
+                return ResourceManager.GetString("DeletedArtist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Был удален жанр:  .
+        /// </summary>
+        public static string DeletedStyle {
+            get {
+                return ResourceManager.GetString("DeletedStyle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Была удалена песня:  .
+        /// </summary>
+        public static string DelSong {
+            get {
+                return ResourceManager.GetString("DelSong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Загрузить.
         /// </summary>
         public static string download {
             get {
                 return ResourceManager.GetString("download", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отредактирован исполнитель: .
+        /// </summary>
+        public static string EdArtist {
+            get {
+                return ResourceManager.GetString("EdArtist", resourceCulture);
             }
         }
         
@@ -300,6 +354,24 @@ namespace Resources {
         public static string EditSong {
             get {
                 return ResourceManager.GetString("EditSong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отредактирована песня:  .
+        /// </summary>
+        public static string EdSong {
+            get {
+                return ResourceManager.GetString("EdSong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отредактирован жанр:  .
+        /// </summary>
+        public static string EdStyle {
+            get {
+                return ResourceManager.GetString("EdStyle", resourceCulture);
             }
         }
         

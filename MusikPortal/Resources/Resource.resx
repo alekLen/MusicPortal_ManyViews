@@ -123,6 +123,12 @@
   <data name="AddArt" xml:space="preserve">
     <value>добавить исполнителя</value>
   </data>
+  <data name="AddedArtist" xml:space="preserve">
+    <value>Был добавлен исполнитель:  </value>
+  </data>
+  <data name="AddedSong" xml:space="preserve">
+    <value>Была добавлена песня:  </value>
+  </data>
   <data name="AddedStyle" xml:space="preserve">
     <value>Был добавлен жанр:  </value>
   </data>
@@ -183,8 +189,20 @@
   <data name="DeleteArt" xml:space="preserve">
     <value>Удалить исполнителя</value>
   </data>
+  <data name="DeletedArtist" xml:space="preserve">
+    <value>Исполнитель был удален:  </value>
+  </data>
+  <data name="DeletedStyle" xml:space="preserve">
+    <value>Был удален жанр:  </value>
+  </data>
+  <data name="DelSong" xml:space="preserve">
+    <value>Была удалена песня:  </value>
+  </data>
   <data name="download" xml:space="preserve">
     <value>Загрузить</value>
+  </data>
+  <data name="EdArtist" xml:space="preserve">
+    <value>Отредактирован исполнитель: </value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>Редактировать</value>
@@ -197,6 +215,12 @@
   </data>
   <data name="EditSong" xml:space="preserve">
     <value>Редактирование песни</value>
+  </data>
+  <data name="EdSong" xml:space="preserve">
+    <value>Отредактирована песня:  </value>
+  </data>
+  <data name="EdStyle" xml:space="preserve">
+    <value>Отредактирован жанр:  </value>
   </data>
   <data name="email" xml:space="preserve">
     <value>Электронная почта </value>
