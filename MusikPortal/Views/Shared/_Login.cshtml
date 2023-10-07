@@ -31,7 +31,7 @@
             <a class="navbar-brand card2 y back" asp-area="" asp-controller="Home" asp-action="Index">@Resources.Resource.Back</a>
         </div>
          <div style="height:8px; width:100%; background-color:white"></div>
-        <div class="center"><span id="notification1" class="c24 push"> was edited</span></div>
+        <div class="center"><span id="notification1AS" class="c24 push">@Resources.Resource.AddedStyle</span><span id="notification1AS1" class="c24 push"></span></div>
     </header>
    
     <div class="container">
@@ -69,7 +69,12 @@
         // Метод hubConnection.on устанавливает функцию на стороне клиента,
         // которая будет получать данные от сервера (хаба)
         hubConnection.on("displayMessage", function (message) {
-            $('#notification1').html(message);
+            if (message.includes("AddStyle")) {
+                var c = message.replace("AddStyle", '');
+                $('#notification1AS').css("display", "block");
+                $('#notification1AS1').css("display", "block");
+                $('#notification1AS1').html(c);
+            }
         });
 
         // Открываем соединение с сервером.

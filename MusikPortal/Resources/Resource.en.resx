@@ -124,7 +124,7 @@
     <value>Add the Artist</value>
   </data>
   <data name="AddedStyle" xml:space="preserve">
-    <value>Genre has been added</value>
+    <value>Genre has been added:  </value>
   </data>
   <data name="Addition" xml:space="preserve">
     <value>Addition</value>

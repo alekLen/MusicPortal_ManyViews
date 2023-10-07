@@ -71,7 +71,7 @@ namespace MusikPortal.Controllers
                 try
                 {
                     await styleService.AddStyle(style);
-                    await SendMessage(Resources.Resource.AddedStyle  + s.Name );
+                    await SendMessage("AddStyle"  + s.Name );
                     return RedirectToAction("Index", "Home");                   
                 }
                 catch

@@ -124,7 +124,7 @@
     <value>добавить исполнителя</value>
   </data>
   <data name="AddedStyle" xml:space="preserve">
-    <value>Был добавлен жанр:</value>
+    <value>Был добавлен жанр:  </value>
   </data>
   <data name="Addition" xml:space="preserve">
     <value>Добавление</value>

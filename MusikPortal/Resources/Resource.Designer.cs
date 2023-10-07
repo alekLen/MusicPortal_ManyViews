@@ -79,7 +79,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Был добавлен жанр:.
+        ///   Looks up a localized string similar to Был добавлен жанр:  .
         /// </summary>
         public static string AddedStyle {
             get {

@@ -197,7 +197,7 @@
                 </div>
             </div>
         </nav>
-        <div class="center"><span id="notification" class="c24 push"> was edited</span></div>
+        <div class="center"><span id="notificationAS" class="c24 push">@Resources.Resource.AddedStyle</span><span id="notificationAS1" class="c24 push"></span></div>
     </header>   
     <div class="container">
         <main role="main" class="pb-3">
@@ -234,7 +234,12 @@
         // Метод hubConnection.on устанавливает функцию на стороне клиента,
         // которая будет получать данные от сервера (хаба)
         hubConnection.on("displayMessage", function (message) {
-            $('#notification').html(message);
+            if (message.includes("AddStyle")) {
+                var c= message.replace("AddStyle", '');
+                $('#notificationAS').css("display", "block");
+                $('#notificationAS1').css("display", "block");
+                $('#notificationAS1').html(c);
+            }
         });
 
         // Открываем соединение с сервером.
