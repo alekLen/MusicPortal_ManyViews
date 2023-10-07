@@ -198,8 +198,7 @@
             </div>
         </nav>
         <div class="center"><span id="notification" class="c24 push"> was edited</span></div>
-    </header>
-
+    </header>   
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -217,6 +216,37 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
-<script>
-    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    $(function () {
+        /*
+        Для взаимодействия с хабом NotificationHub с помощью метода build() объекта HubConnectionBuilder
+        создается объект hubConnection - объект подключения.
+        Метод withUrl устанавливает адрес, по котору приложение будет обращаться к хабу.
+        Поскольку NotificationHub на сервере сопоставляется с адресом "/notification",
+        то именно этот адрес и передается в withUrl.
+        */
+        const hubConnection = new signalR.HubConnectionBuilder()
+            .withUrl("/notification")
+            .build();
+
+        // Метод hubConnection.on устанавливает функцию на стороне клиента,
+        // которая будет получать данные от сервера (хаба)
+        hubConnection.on("displayMessage", function (message) {
+            $('#notification').html(message);
+        });
+
+        // Открываем соединение с сервером.
+        // Если подключение к хабу успешно установлено,
+        // то сработает метод then, чтобы выполнить некоторые действия.
+        // Если же в процессе подключения к серверу возникнет ошибка,
+        // то сработает функция, которая передается в метод catch и которая получит данные об ошибке.
+        hubConnection.start()
+            .then()
+            .catch(function (err) {
+                return console.error(err.toString());
+            });
+
+    });
 </script>
